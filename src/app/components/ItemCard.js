@@ -1,14 +1,24 @@
 import Link from 'next/link'
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../context/ThemeProvider'
+import { useDevice } from "use-device-react";
+
 
 const ItemCard = ({imageurl, price, name, description, lastprice}) => {
+  const breakpoints = {
+    tablet: 650,
+    desktop: 1024,
+  };
+  const { isMobile, isDesktop, isTablet } = useDevice(breakpoints);
+  console.log(device)
+  const {isShoppingCartOpen, setIsShoppingCartOpen} = useContext(ThemeContext)
   const {cartProducts, setCartProducts} = useContext(ThemeContext)
   const [isClicked, setIsClicked] = useState(false)
   const handleClick = () => {
     setIsClicked(!isClicked)
   }
   const handleBtnClick = () => {
+    setIsShoppingCartOpen(true)
     // Copia el carrito actual
     const cartList = [...cartProducts];
   

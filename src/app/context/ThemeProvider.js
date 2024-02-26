@@ -6,6 +6,7 @@ export default function ThemeProvider({ children }) {
   
   const [products, setProducts] = useState([])
   const [cartProducts, setCartProducts] = useState([])
+  const [isShoppingCartOpen, setIsShoppingCartOpen] = useState(false)
   const fetchData = async () => {
     try {
       const res = await fetch("https://victorious-triumph-9d05bbd950.strapiapp.com/api/products",{
@@ -22,5 +23,5 @@ export default function ThemeProvider({ children }) {
   useEffect(() => {
     fetchData()
   }, [])
-  return <ThemeContext.Provider value={{products , cartProducts, setCartProducts}}>{children}</ThemeContext.Provider>
+  return <ThemeContext.Provider value={{products , cartProducts, setCartProducts, isShoppingCartOpen, setIsShoppingCartOpen}}>{children}</ThemeContext.Provider>
 }

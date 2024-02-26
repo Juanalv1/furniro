@@ -4,10 +4,13 @@ import { FiHeart, FiMenu, FiSearch, FiShoppingCart, FiUser, FiX } from "react-ic
 import { useState } from 'react';
 import Link from 'next/link';
 import ShoppingCart from './ShoppingCart';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeProvider';
 
 const Navbar = () => {
+  const {setIsShoppingCartOpen, isShoppingCartOpen} = useContext(ThemeContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isShoppingCartOpen, setIsShoppingCartOpen] = useState(false)
+
   const handleCartClick = () => {
     setIsShoppingCartOpen(!isShoppingCartOpen)
   }
@@ -15,7 +18,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
   return (
-    <div className=' flex justify-between  py-4 items-center  px-4 lg:px-8 bg-slate-50 fixed top-0 right-0 w-full box-border z-30'>
+    <div className=' flex justify-between  py-4 items-center  px-4 lg:px-8 bg-slate-50 fixed top-0 right-0 w-full box-border z-30 '>
       <img src='/logo.png' className=' max-w-[120px] lg:max-w-[140px]'/>
       <FiMenu className='text-3xl lg:hidden' onClick={handleMenuClick}/>
       {isMenuOpen && (
@@ -49,7 +52,7 @@ const Navbar = () => {
         <FiSearch />
         <FiUser />
         <FiHeart />
-        <FiShoppingCart onClick={handleCartClick}/>
+        <FiShoppingCart onClick={handleCartClick} className='cursor-pointer'/>
       </ul>
     </div>
   )
