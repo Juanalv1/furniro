@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className='absolute top-0 right-0 w-[55%] bg-[#F9F1E7] z-20 py-2 px-4 flex flex-col lg:hidden h-screen'>
            <FiX onClick={handleMenuClick} className='self-end w-6 h-6'/>
            <ul className='flex flex-col px-4 py-2 gap-y-4 mt-8'>
-            <Link href={'/home'} className=' no-underline text-lg text-black'>Home</Link>
+            <Link href={'/'} className=' no-underline text-lg text-black'>Home</Link>
             <Link href={'/shop'} className=' no-underline text-lg text-black'>Shop</Link>
             <Link href={'/about'} className=' no-underline text-lg text-black'>About</Link>
             <Link href={'/contact'} className=' no-underline text-lg text-black'>Contact</Link>

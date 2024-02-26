@@ -1,16 +1,14 @@
+"use client"
 import Link from 'next/link'
 import React, { useContext, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { ThemeContext } from '../context/ThemeProvider'
-import { useDevice } from "use-device-react";
+import { isMobile } from '../utils/deviceDetect'
 
 
 const ItemCard = ({imageurl, price, name, description, lastprice}) => {
-  const breakpoints = {
-    tablet: 650,
-    desktop: 1024,
-  };
-  const { isMobile, isDesktop, isTablet } = useDevice(breakpoints);
-  console.log(device)
+  const router = useRouter()
+  const mobile = isMobile()
   const {isShoppingCartOpen, setIsShoppingCartOpen} = useContext(ThemeContext)
   const {cartProducts, setCartProducts} = useContext(ThemeContext)
   const [isClicked, setIsClicked] = useState(false)
@@ -18,13 +16,9 @@ const ItemCard = ({imageurl, price, name, description, lastprice}) => {
     setIsClicked(!isClicked)
   }
   const handleBtnClick = () => {
-    setIsShoppingCartOpen(true)
-    // Copia el carrito actual
     const cartList = [...cartProducts];
-  
-    // Busca el producto en el carrito
     const productFound = cartList.find(product => product.name === name);
-  
+
     if (productFound) {
       // Si el producto existe, actualiza la cantidad
       cartList.forEach(product => {
@@ -43,6 +37,13 @@ const ItemCard = ({imageurl, price, name, description, lastprice}) => {
         qty: 1
       });
     }
+    if (mobile) {
+      router.push('/cart')
+    } else if(!mobile) {
+      setIsShoppingCartOpen(true)
+    }
+  
+
   
     // Actualiza el estado del carrito con la nueva lista
     setCartProducts(cartList);
