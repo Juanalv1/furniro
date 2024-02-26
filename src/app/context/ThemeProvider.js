@@ -9,7 +9,7 @@ export default function ThemeProvider({ children }) {
   const fetchData = async () => {
     try {
       const res = await fetch("https://victorious-triumph-9d05bbd950.strapiapp.com/api/products",{
-        headers: {Authorization: `Bearer ${process.env.BEARER_TOKEN}`},
+        headers: {Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`},
         }
       )
       const data = await res.json()
