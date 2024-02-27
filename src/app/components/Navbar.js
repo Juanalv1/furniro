@@ -42,13 +42,13 @@ const Navbar = () => {
       {isShoppingCartOpen && (
         <ShoppingCart handleCartClick={handleCartClick}/>
       )}
-      <ul className='lg:flex gap-x-8 font-semibold text-lg justify-center items-center p-0 hidden m-0'>
+      <ul className='lg:flex gap-x-8 font-semibold  justify-center items-center p-0 hidden m-0'>
         <Link href={'/'} className=' no-underline  text-black'>Home</Link>
         <Link href={'/shop'} className=' no-underline  text-black'>Shop</Link>
         <Link href={'/about'} className=' no-underline  text-black'>About</Link>
         <Link href={'/contact'} className=' no-underline  text-black'>Contact</Link>
       </ul>
-      <ul className='lg:flex gap-x-8 font-semibold text-2xl justify-center items-center p-0 hidden m-0'>
+      <ul className='lg:flex gap-x-8 font-semibold text-lg justify-center items-center p-0 hidden m-0'>
         <FiSearch />
         <FiUser />
         <FiHeart />

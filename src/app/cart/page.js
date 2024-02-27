@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import CartCard from '../components/CartCard'
 import Navbar from '../components/Navbar'
 import { ThemeContext } from '../context/ThemeProvider'
+import Link from 'next/link'
 
 const Cart = () => {
   const { cartProducts } = useContext(ThemeContext)
@@ -30,6 +31,9 @@ const Cart = () => {
         {cartProducts && cartProducts.map((product, index) => (
           <CartCard img_url={product.imageurl} name={product.name} price={product.price} qty={product.qty} key={index}/>
         ))}
+      </div>
+      <div className='flex justify-center items-center'>
+        <Link className='border-solid border-yellow-500 bg-white px-4 py-2 no-underline text-yellow-500' href={'/shop'}>Add more</Link>
       </div>
       <div className='flex justify-between items-center px-4 py-2 pt-4 mt-4 border-solid border-transparent border-t-[#D9D9D9]'>
         <p className='font bold'>Subtotal</p>

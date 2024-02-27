@@ -22,7 +22,7 @@ export default function Home() {
         </div>
 
       </section>
-      <section className='bg-white flex flex-col px-4 py-6 lg:px-24'>
+      <section className='bg-white flex flex-col px-4 py-6 lg:px-16'>
         <div className='flex flex-col items-center justify-center'>
           <h2 className='text-3xl font-bold my-3 text-[#333333]'>Browse The Range</h2>
           <p className='flex m-0 justify-center text-center text-[#666666]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
@@ -41,9 +41,9 @@ export default function Home() {
             <p className='text-center font-semibold mt-2'>Bedroom</p>
           </div>
         </div>
-        <div className='flex flex-col px-4 py-2 grid-cols-1 gap-y-2 mt-4 text-[#333333] lg:mt-8 lg:px-16'>
+        <div className='flex flex-col px-4 py-2 grid-cols-1 gap-y-2 mt-4 text-[#333333] lg:mt-8 lg:px-0'>
           <h2 className='font-semibold text-2xl text-center lg:mb-6'>Our Products</h2>
-          <div className='grid gap-y-8 px-4 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-x-6'>
+          <div className='grid gap-y-8 px-4 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-x-6 place-items-center'>
             {products && products.slice(0, 4).map((product, index) => (
               <ItemCard imageurl={product.attributes.images_url} name={product.attributes.name} description={product.attributes.description} price={product.attributes.price} lastprice={'3.500.000'} key={index}/>
             ))}
